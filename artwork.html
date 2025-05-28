@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="nav-bar" class="nav">
+        <div class="nav-wrapper">
+            <ul class="left">
+                <li><a href="index.html" class="navInactive">Home</a></li>
+                <li><a href="#" class="navActive">Artwork</a></li>
+            </ul>
+            <ul class="right">
+                <li><i id="pause-play" class="material-symbols-outlined pausePlay " onclick="pause_play()">pause_circle</i></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="artwork">
+        <div id="art-1">
+            <img class="artwork-image" src="images/lake.jpg">
+            <p class="artwork-text">Title</p>
+        </div>
+        <div id="art-2">
+            <img class="artwork-image" src="images/boat.jpg">
+            <p class="artwork-text">Title</p>
+        </div>
+        <div id="art-3">
+            <img class="artwork-image" src="images/paris.jpg">
+            <p class="artwork-text">Title</p>
+        </div>
+    </div>
+
+    <script src="artwork.js"></script>
+
+</body>
+
+</html>
