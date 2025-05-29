@@ -28,6 +28,10 @@
     background-color:white;
     position:absolute;
 }
+.nav a{
+    border-right: solid black;
+    border-bottom: solid black;
+}
 #signature{
     width:220px;
     height:100px;
