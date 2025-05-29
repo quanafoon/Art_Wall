@@ -58,3 +58,12 @@ function pause_play(){
         control.classList.remove("pulse");
     }, 1000);   
 }
+
+document.addEventListener("touchstart", function() {
+    stop = true;
+});
+document.addEventListener("touchend", function() {
+    setTimeout(() => {
+        stop = false;
+    }, 1000);
+});
