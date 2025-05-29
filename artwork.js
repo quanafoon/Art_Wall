@@ -3,8 +3,9 @@ let down = true;
 let scrolling = false;
 let scrollTimeout = null;
 let before = document.documentElement.scrollTop;
-let stop = false;
+let stopped = false;
 let control = document.getElementById("pause-play");
+const artwork = document.getElementById("artwork");
 let nav = Array.from(document.getElementsByClassName("nav"));
 nav[0].style.position = "fixed";
 
@@ -29,7 +30,7 @@ document.addEventListener("scroll", function(){
 
 
 function scroll() {
-    if(!scrolling && !stop){
+    if(!scrolling && !stopped){
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
         if (pos >= maxScroll) {
@@ -48,22 +49,31 @@ function scroll() {
 requestAnimationFrame(scroll);
 
 function pause_play(){
-    stop = !stop;
-    if(stop)
+    stopped = !stopped;
+    if(stopped)
         control.innerHTML = "play_circle"
     else
         control.innerHTML = "pause_circle";
     control.classList.add("pulse");
     setTimeout(function(){
         control.classList.remove("pulse");
-    }, 1000);   
+    }, 300);   
 }
 
-document.addEventListener("touchstart", function() {
-    stop = true;
+let ignoreTouchEnd = false;
+artwork.addEventListener("touchstart", function() {
+    if(stopped){
+        ignoreTouchEnd = true;  
+        return;  
+    }
+    stopped = true;
 });
-document.addEventListener("touchend", function() {
+artwork.addEventListener("touchend", function() {
+    if(!stopped || ignoreTouchEnd){
+        ignoreTouchEnd = false;
+        return;
+    }
     setTimeout(() => {
-        stop = false;
-    }, 1000);
+        stopped = false;
+    }, 300);
 });
